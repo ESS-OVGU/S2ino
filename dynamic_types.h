@@ -5,7 +5,7 @@
  *
  *  @copyright  Copyright 2016 André Dietrich. All rights reserved.
  *
- *  @license    This project is released under the BSD-License.
+ *  @license    This project is released under the MIT-License.
  *
  *  @brief      Definition of internal settings and applied data types.
  *
@@ -63,7 +63,7 @@ typedef enum {
     LIST,               ///< list of type dyn_list
     SET,                ///< set of type dyn_list
     DICT,               ///< dictionary of type dyn_dict
-    TEMP,               ///< not used
+//    TEMP,               ///< not used
     FUNCTION,           ///< function pointer of type dyn_fct
     EXTERN,             ///< void*
     REFERENCE,          ///< dyn_c* for internal usage only

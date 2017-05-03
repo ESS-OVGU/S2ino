@@ -1,3 +1,17 @@
+/**
+ *  @file dynamic.c
+ *  @author André Dietrich
+ *  @date 14 December 2016
+ *
+ *  @copyright Copyright 2016 André Dietrich. All rights reserved.
+ *
+ *  @license This project is released under the MIT-License.
+ *
+ *  @brief Implementation of dynamiC base module.
+ *
+ *
+ */
+
 #include "dynamic.h"
 #include <stdio.h>
 
@@ -41,7 +55,7 @@ void dyn_free (dyn_c* dyn)
  */
 TYPE dyn_type (dyn_c* dyn)
 {
-    return DYN_TYPE(dyn);
+    return (TYPE)DYN_TYPE(dyn);
 }
 
 /**
@@ -274,7 +288,7 @@ START:
         case REFERENCE: dyn=dyn->data.ref;
                         goto START;
     }
-    return 0;
+    return DYN_FALSE;
 }
 
 /**
@@ -439,7 +453,7 @@ trilean dyn_copy (dyn_c* dyn, dyn_c* copy)
         case LIST:      return dyn_list_copy ( dyn, copy );
 #ifdef S2_SET
         case SET:       if ( !dyn_list_copy(dyn, copy) )
-                            return 0;
+                            return DYN_FALSE;
                         copy->type = SET;
                         break;
 #endif
